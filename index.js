@@ -1,7 +1,9 @@
 // TODO: Include packages needed for this application
-
+import inquirer from 'inquirer';
+import fs from 'fs';
 // TODO: Create an array of questions for user input
 const questions = [
+    inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -10,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please provide a description of your project.'
+        message: 'Please provide a short description of your project.'
     },
     {
         type: 'input',
@@ -49,14 +51,21 @@ const questions = [
         choices: [  'MIT',
                     'GNU GPLv3',
                     'Apache 2.0',
-                    'ISC', 
+                    'BSD 3-Clause', 
                     'None']
     }
+])
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
-
+fs.writeFile('/generated/ReadMe', generateMarkDown(data), (err) => {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        console.log('ReadMe file successfully generated!');}
+    });
 // TODO: Create a function to initialize app
 function init() {}
 
