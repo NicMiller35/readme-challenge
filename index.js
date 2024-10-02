@@ -1,9 +1,9 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
+import generateMarkDown from '/generateMarkdown.js';
 // TODO: Create an array of questions for user input
 const questions = [
-    inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -54,7 +54,6 @@ const questions = [
                     'BSD 3-Clause', 
                     'None']
     }
-])
 ];
 
 // TODO: Create a function to write README file
@@ -67,7 +66,16 @@ fs.writeFile('/generated/ReadMe', generateMarkDown(data), (err) => {
         console.log('ReadMe file successfully generated!');}
     });
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+inquirer.prompt(questions)
+.then((answers) => {
+    const markdown = generateMarkDown(answers);
+    writeToFile('README.md', markdown);
+})
+.catch((error) => {
+console.error('Please fill out required inputs to display a README', error)
+});
+}
 
 // Function call to initialize app
 init();
