@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
-import generateMarkDown from '/generateMarkdown.js';
+import generateMarkDown from './generateMarkdown.js';
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -19,6 +19,7 @@ const questions = [
         name: 'installation',
         message: 'Please provide installation instructions for your project.'
     },
+    
     {
         type: 'input',
         name: 'usage',
@@ -57,14 +58,16 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-fs.writeFile('/generated/ReadMe', generateMarkDown(data), (err) => {
+//Where do I call these parameters??
+function writeToFile(fileName, data) {
+fs.writeFile(fileName, data, (err) => {
     if (err) {
         console.log(err);
     }
     else {
         console.log('ReadMe file successfully generated!');}
     });
+}
 // TODO: Create a function to initialize app
 function init() {
 inquirer.prompt(questions)
@@ -79,3 +82,6 @@ console.error('Please fill out required inputs to display a README', error)
 
 // Function call to initialize app
 init();
+
+
+//when running node index it is saying that it cannot find module for generateMarkDown.
