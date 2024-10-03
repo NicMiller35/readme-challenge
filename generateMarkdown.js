@@ -11,10 +11,10 @@ function renderLicenseBadge(license) {
       badgeUrl = '![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
       break;
     case 'GNU GPLv3':
-      badgeUrl = 'https://img.shields.io/badge/License-GPLv3-blue.svg';
+      badgeUrl = '![GNU GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
       break;
     case 'Apache 2.0':
-      badgeUrl = 'https://img.shields.io/badge/License-Apache%202.0-blue.svg';
+      badgeUrl = '![Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
       break;
     case 'BSD 3-Clause':
       badgeUrl = '![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)';
@@ -35,16 +35,16 @@ function renderLicenseLink(license) {
   let licenseUrl;
   switch (license) {
     case 'MIT':
-      licenseUrl = 'https://opensource.org/licenses/MIT';
+      licenseUrl = '<https://opensource.org/licenses/MIT>';
       break;
     case 'GNU GPLv3':
-      licenseUrl = 'https://www.gnu.org/licenses/gpl-3.0';
+      licenseUrl = '<https://www.gnu.org/licenses/gpl-3.0>';
       break;
     case 'Apache 2.0':
-      licenseUrl = 'https://opensource.org/licenses/Apache-2.0';
+      licenseUrl = '<https://opensource.org/licenses/Apache-2.0>';
       break;
     case 'BSD 3-Clause':
-      licenseUrl = 'https://opensource.org/licenses/BSD-3-Clause';
+      licenseUrl = '<https://opensource.org/licenses/BSD-3-Clause>';
       break;
     default:
       licenseUrl = '';
@@ -96,6 +96,3 @@ ${data.email}
 
 export default generateMarkdown;
 
-renderLicenseBadge();
-renderLicenseLink();
-renderLicenseSection();

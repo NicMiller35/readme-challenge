@@ -73,7 +73,7 @@ function init() {
 inquirer.prompt(questions)
 .then((answers) => {
     const markdown = generateMarkDown(answers);
-    writeToFile('README.md', markdown);
+    writeToFile('./generated/README.md', markdown);
 })
 .catch((error) => {
 console.error('Please fill out required inputs to display a README', error)
